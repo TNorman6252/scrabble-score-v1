@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.system.exitProcess
 
 private val input = Scanner(System.`in`);
 private val scrabbleScore = ScrabbleScore();
@@ -15,6 +16,10 @@ fun main(args: Array<String>) {
     while (true) {
         print("Enter a word and compute the Scrabble Score: ")
         val word = input.nextLine()
+        if(word.equals("-1")) {
+            println("Sentinel value entered. Closing program!")
+            exitProcess(0)
+        }
         //TODO change to use a string template:
         println("$word has a value of: ${scrabbleScore.scoreWord(word)}")
     }
